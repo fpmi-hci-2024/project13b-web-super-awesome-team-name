@@ -1,0 +1,20 @@
+<div class="depts-container">
+  <div class="filter">
+    <span>City:</span>
+    <select [(ngModel)]="selectedCity" (change)="loadClinics()">
+      <option value="">All</option>
+      <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    </select>
+  </div>
+
+  <div class="clinic-grid">
+    <a *ngFor="let clinic of clinics" class="clinic-card" [routerLink]="['/clinic', clinic.id]">
+      <div class = "clinic-content">
+        <h3>{{ clinic.name }}</h3>
+        <p>Address: {{ clinic.address }}</p>
+        <p>Phone: {{ clinic.phone }}</p>
+        <p>Email: {{ clinic.email }}</p>
+      </div>
+    </a>
+  </div>
+</div>

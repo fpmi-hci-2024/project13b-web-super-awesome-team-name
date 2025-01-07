@@ -1,0 +1,16 @@
+<nav *ngIf="userRole === 'client'">
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
+    <li><a routerLink="/depts" routerLinkActive="active">Depts</a></li>
+    <li><a routerLink="/contacts" routerLinkActive="active">Contacts</a></li>
+  </ul>
+  <button (click)="logout()" class = "logout-button">Log Out</button>
+</nav>
+<nav *ngIf="userRole === 'worker'">
+  <ul>
+    <li><a routerLink="/depts" routerLinkActive="active">Depts</a></li>
+    <li><a routerLink="/doctors" routerLinkActive="active">Doctors</a></li>
+  </ul>
+  <button (click)="logout()" class = "logout-button">Log Out</button>
+</nav>

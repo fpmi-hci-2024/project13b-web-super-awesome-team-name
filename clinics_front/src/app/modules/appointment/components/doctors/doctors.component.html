@@ -1,0 +1,44 @@
+<div class="doctors-header">
+<h2 *ngIf="!departmentId">Doctors</h2>
+<h2 *ngIf="departmentId">{{ departmentName }} Doctors</h2>
+</div>
+
+<div *ngIf="userRole === 'worker' && !departmentId" class="filters">
+  <div>
+    <label for="city">City:</label>
+    <select id="city" [(ngModel)]="selectedCity" (change)="loadDoctors()">
+      <option value="null">All</option>
+      <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="clinic">Clinic:</label>
+    <select id="clinic" [(ngModel)]="selectedClinic" (change)="loadDoctors()">
+      <option value="null">All</option>
+      <option *ngFor="let clinic of clinics" [value]="clinic">{{ clinic }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="department">Department:</label>
+    <select id="department" [(ngModel)]="selectedDepartment" (change)="loadDoctors()">
+      <option value="null">All</option>
+      <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+    </select>
+  </div>
+</div>
+
+
+<div class="doctor-grid">
+  <a *ngFor="let doctor of doctors" class="doctor-card" (click)="goToDoctor(doctor.id)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+      <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="#99A3A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M24 30C27.3137 30 30 27.3137 30 24C30 20.6863 27.3137 18 24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30Z" stroke="#99A3A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14 36C14 36 18.5 37 24 37C31 37 32 36 32 36" stroke="#99A3A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <h3>{{ doctor.name }}</h3>
+    <p>{{ doctor.description }}</p>
+    <p>Graduation: {{ doctor.graduation }}</p>
+    <p>Specialty: {{ doctor.specialty }}</p>
+  </a>
+</div>

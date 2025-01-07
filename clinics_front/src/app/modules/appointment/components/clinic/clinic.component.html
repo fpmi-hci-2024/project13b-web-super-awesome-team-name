@@ -1,0 +1,8 @@
+<div class="departments-header">
+<h2>{{ clinicName }} Departments</h2>
+</div>
+<div class="department-list">
+  <a *ngFor="let department of departments" class="department-card" [routerLink]="['/doctors', department.id]">
+    {{ department.name }}
+  </a>
+</div>

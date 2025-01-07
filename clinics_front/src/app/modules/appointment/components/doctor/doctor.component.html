@@ -1,0 +1,24 @@
+<div class="doctor-container">
+<input type="date" [(ngModel)]="selectedDate" (change)="onDateChange()" [min]="minDate">
+
+<div *ngIf="selectedDate">
+  <h3>Appointments for {{ selectedDate }}</h3>
+
+  <ul>
+    <li *ngFor="let appointment of appointments">
+      {{ appointment.time }}
+      <span *ngIf="userRole === 'worker'">{{ appointment.patientName }}</span>
+      <button *ngIf="appointment.userId === userId || userRole === 'worker'" (click)="removeAppointment(appointment.id)">Cancel</button>
+    </li>
+  </ul>
+
+  <h4>Create new appointment:</h4>
+
+  <input type="text" [(ngModel)]="newAppointmentName" placeholder="Patient Name">
+
+  <select [(ngModel)]="newAppointmentTime">
+    <option *ngFor="let time of availableTimes" [value]="time">{{ time }}</option>
+  </select>
+  <button (click)="createAppointment()">Create Appointment</button>
+</div>
+</div>

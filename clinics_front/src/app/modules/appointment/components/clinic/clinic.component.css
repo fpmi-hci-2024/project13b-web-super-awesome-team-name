@@ -1,0 +1,32 @@
+.departments-header {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.department-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.department-card {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  width: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.department-card:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
